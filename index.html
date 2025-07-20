@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+      <title>Pathora</title>
+      <link rel="shortcut icon" type="image/x-icon" href="favicon.ico" />
+
+    <link rel="stylesheet" href="style.css">
+
+    <link href="https://api.mapbox.com/mapbox-assembly/v1.3.0/assembly.min.css" rel="stylesheet">
+    <script id="search-js" defer="" src="https://api.mapbox.com/search-js/v1.3.0/web.js"></script>
+
+    <meta name="viewport" content="initial-scale=1,maximum-scale=1,user-scalable=no">
+    <link href="https://api.mapbox.com/mapbox-gl-js/v3.13.0/mapbox-gl.css" rel="stylesheet">
+    <script src="https://api.mapbox.com/mapbox-gl-js/v3.13.0/mapbox-gl.js"></script>
+
+    <script src="https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-directions/v4.3.1/mapbox-gl-directions.js"></script>
+    <link rel="stylesheet" href="https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-directions/v4.3.1/mapbox-gl-directions.css" type="text/css">
+    
+    <script src="script.js" defer></script>
+  </head>
+  <body>
+    <div id = "preferencesInput">
+      <img src="logo.png" alt="Company Logo" width="250" height="35" style="margin-left: 20px; margin-right: 30px;">
+
+      <label for="lightlvl">Light Importance:</label>
+        <select name="lightlvl" id="lightlvl">
+          <option value="1">1</option>
+          <option value="2">2</option>
+          <option value="3">3</option>
+          <option value="4">4</option>
+          <option value="5">5</option>
+          <option value="6">6</option>
+          <option value="7">7</option>
+          <option value="8">8</option>
+          <option value="9">9</option>
+          <option value="10">10</option>
+        </select>
+
+        <label for="roadCond">Road Conditions:</label>
+        <select name="roadCond" id="roadCond">
+          <option value="1">1</option>
+          <option value="2">2</option>
+          <option value="3">3</option>
+          <option value="4">4</option>
+          <option value="5">5</option>
+          <option value="6">6</option>
+          <option value="7">7</option>
+          <option value="8">8</option>
+          <option value="9">9</option>
+          <option value="10">10</option>
+        </select>
+
+        <label for="signage">Signage:</label>
+        <select name="signage" id="signage">
+          <option value="1">1</option>
+          <option value="2">2</option>
+          <option value="3">3</option>
+          <option value="4">4</option>
+          <option value="5">5</option>
+          <option value="6">6</option>
+          <option value="7">7</option>
+          <option value="8">8</option>
+          <option value="9">9</option>
+          <option value="10">10</option>
+        </select>
+
+        <label for="trafficLights">Traffic Lights:</label>
+        <select name="trafficLights" id="trafficLights">
+          <option value="1">1</option>
+          <option value="2">2</option>
+          <option value="3">3</option>
+          <option value="4">4</option>
+          <option value="5">5</option>
+          <option value="6">6</option>
+          <option value="7">7</option>
+          <option value="8">8</option>
+          <option value="9">9</option>
+          <option value="10">10</option>
+        </select>
+
+
+        <button class="button" onclick="submitConditions()">Submit Preferences</button>
+      </div>
+
+      
+
+      <div id="map"></div>
+  </body>
+</html>
