@@ -12,15 +12,18 @@ function errorLocation() {
     setupMap([43.6426, -79.3871], "point(79.49918 43.77070)")
 }
 
+var roads = [];
+
+var roadMarkers = [];
+
 function setupMap(center, excluded) {
 
-    const roads = [];
-
-    const toPrint = [];
+    
 
     const road1 = {
         name: "Fenmar Drive",
-        roadCoords: "point(-79.55590 43.76246),point(-79.56439 43.76615)",
+        roadCoords: "point(-79.55579 43.76242),point(-79.56439 43.76615)",
+        markerCoords: [[-79.55579, 43.76242], [-79.56439, 43.76615]],
         light: 160,
         conditions: 100,
         signs: 40,
@@ -31,6 +34,7 @@ function setupMap(center, excluded) {
     const road2 = {
         name: "Steeles Ave W",
         roadCoords: "point(-79.56367 43.76674)",
+        markerCoords: [[-79.56367, 43.76674]],
         light: 40,
         conditions: 40,
         signs: 100,
@@ -41,6 +45,7 @@ function setupMap(center, excluded) {
     const road3 = {
         name: "Toryork Dr",
         roadCoords: "point(-79.56420 43.76259)",
+        markerCoords: [[-79.56420, 43.76259]],
         light: 60,
         conditions: 100,
         signs: 10,
@@ -51,6 +56,7 @@ function setupMap(center, excluded) {
     const road4 = {
         name: "407 Express",
         roadCoords: "point(-79.56275 43.77689)",
+        markerCoords: [[-79.56275, 43.77689]],
         light: 1000,
         conditions: 1000,
         signs: 1000,
@@ -76,7 +82,25 @@ function setupMap(center, excluded) {
     //searchBox.accessToken = 'pk.eyJ1IjoidmFsZXJvcHMiLCJhIjoiY21kMXM0dTRlMDN2dzJ2cTMxYmp3enpxZSJ9.RU1rPEOUyH7RXE3Fn337ew';
     //map.addControl(searchBox);
 
-    //new mapboxgl.Marker().setLngLat(center).addTo(map);
+    for (var marker of roadMarkers) {
+        const avoidMarker = document.createElement('div');
+            avoidMarker.style.backgroundColor = 'red';
+            avoidMarker.style.width = '15px';
+            avoidMarker.style.height = '15px';
+            avoidMarker.style.borderRadius = '50%';
+            avoidMarker.style.display = 'flex';
+            avoidMarker.style.alignItems = 'center';
+            avoidMarker.style.justifyContent = 'center';
+            avoidMarker.style.color = 'white';
+            avoidMarker.style.fontSize = '10px';
+            avoidMarker.style.fontWeight = 'bold';
+            avoidMarker.innerText = '✖️'; // or 🚫 or ⚠️
+
+        new mapboxgl.Marker(avoidMarker)
+            .setLngLat(marker)
+            .addTo(map);
+    }
+    
 
     var directions = new MapboxDirections({
         accessToken: 'pk.eyJ1IjoidmFsZXJvcHMiLCJhIjoiY21kMXM0dTRlMDN2dzJ2cTMxYmp3enpxZSJ9.RU1rPEOUyH7RXE3Fn337ew',
@@ -87,7 +111,7 @@ function setupMap(center, excluded) {
     map.addControl(directions, 'top-left');
 
     const nav = new mapboxgl.NavigationControl();
-    map.addControl(nav, 'top-left');
+    map.addControl(nav, 'top-right');
 
 
 
@@ -108,6 +132,9 @@ function setupMap(center, excluded) {
                 if (excludedRoads == "") {
                     excludedRoads = excludedRoads + road.roadCoords;
                     roadNamesToPrint = roadNamesToPrint + road.name;
+                    for (var marker of road.markerCoords) {
+                        roadMarkers.push(marker);
+                    }
                 } else {
                     excludedRoads = excludedRoads + "," + road.roadCoords;
                     roadNamesToPrint = roadNamesToPrint + ", " + road.name
