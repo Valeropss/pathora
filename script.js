@@ -26,13 +26,13 @@ var roadMarkers = [];
 var roadMarkerObj = [];
 
 const road1 = {
-    name: "Fenmar Drive",
+    name: "Fenmar Dr 1",
     roadCoords: "point(-79.55579 43.76242)",
     markerCoords: [[-79.55579, 43.76242]],
-    light: 160,
-    conditions: 100,
-    signs: 40,
-    intersections: 40,
+    light: 300,
+    conditions: 0,
+    signs: 0,
+    intersections: 0,
     danger: 0,
 }
 
@@ -70,7 +70,7 @@ const road4 = {
 }
 
 const road5 = {
-    name: "Fenmar Drive 2",
+    name: "Fenmar Dr 2",
     roadCoords: "point(-79.54069 43.75807)",
     markerCoords: [[-79.54069, 43.75807]],
     light: 40,
@@ -81,7 +81,7 @@ const road5 = {
 }
 
 const road6 = {
-    name: "Fenmar Drive 3",
+    name: "Fenmar Dr 3",
     roadCoords: "point(-79.56439 43.76615)",
     markerCoords: [[-79.56439, 43.76615]],
     light: 160,
@@ -92,7 +92,7 @@ const road6 = {
 }
 
 const road7 = {
-    name: "Weston Road 1",
+    name: "Weston Rd 1",
     roadCoords: "point(-79.54549 43.76551)",
     markerCoords: [[-79.54549, 43.76551]],
     light: 80,
@@ -113,13 +113,53 @@ const road8 = {
     danger: 0,
 }
 
+const road9 = {
+    name: "Milvan Dr 1",
+    roadCoords: "point(-79.55251 43.75028)",
+    markerCoords: [[-79.55251, 43.75028]],
+    light: 40,
+    conditions: 40,
+    signs: 40,
+    intersections: 40,
+    danger: 0,
+}
+
+const road10 = {
+    name: "Penn Dr 1",
+    roadCoords: "point(-79.55834 43.75496)",
+    markerCoords: [[-79.55834,43.75496]],
+    light: 200,
+    conditions: 0,
+    signs: 10,
+    intersections: 0,
+    danger: 0,
+}
+
+const road11 = {
+    name: "Arrow Rd 1",
+    roadCoords: "point(-79.53558 43.75231)",
+    markerCoords: [[-79.53558,43.75231]],
+    light: 0,
+    conditions: 80,
+    signs: 0,
+    intersections: 80,
+    danger: 0,
+}
+
+const road12 = {
+    name: "Steeles Ave W 2",
+    roadCoords: "point(-79.55557 43.76845)",
+    markerCoords: [[-79.55557,43.76845]],
+    light: 0,
+    conditions: 80,
+    signs: 0,
+    intersections: 80,
+    danger: 0,
+}
 
 
 
-
-
-
-roads.push(road1, road2, road3, road4, road5, road6, road7, road8);
+roads.push(road1, road2, road3, road4, road5, road6, road7, road8, road9, road10, road11, road12);
 
 function setupMap(center, excluded) {
 
