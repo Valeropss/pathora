@@ -12,11 +12,11 @@ navigator.geolocation.getCurrentPosition(successLocation, errorLocation, {
 })
 
 function successLocation(position) {
-    setupMap([position.coords.longitude, position.coords.latitude], "point(79.49918 43.77070)")
+    setupMap([-79.53558,43.75231], "point(79.49918 43.77070)")
 }
 
 function errorLocation() {
-    setupMap([43.6426, -79.3871], "point(79.49918 43.77070)")
+    setupMap([-79.53558,43.75231], "point(79.49918 43.77070)")
 }
 
 var roads = [];
